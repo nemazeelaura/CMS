@@ -1,0 +1,41 @@
+<h1>ALL POSTS</h1>
+<!-- directs to partials form-msg.handlebars-->
+<!-- {{> home/form-msg}}
+ -->
+<table class="table table-bordered">
+
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>File</th>
+			<th>Title</th>
+			<th>Status</th>
+			<th>Category</th>
+			<th>Allow Comments</th>
+			<th>View Post</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+
+	<tbody>
+        <!-- #each in handlebars is like for each loop-->
+		{{#each posts}}
+		<tr>
+			<!-- handlebars brings variables with curly brackets -->
+			<td>{{id}}</td>
+			<!--shows image-->
+			<td><img height="50" class="img-responsive" src="/uploads/{{file}}" alt="image"></td>
+			<td>{{title}}</td>
+			<td>{{status}}</td>
+			<td>{{category.name}}</td>
+			<td>{{allowComments}}</td>
+			<!-- replaced {{id}} with {{slug}}-->
+			<td><a href="/post/{{slug}}">View</a></td>
+			<td>{{generateDate date 'MMMM Do YYYY'}}</td>
+		</tr>
+
+		{{/each}}
+	</tbody>
+
+
+</table>
