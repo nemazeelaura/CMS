@@ -10,7 +10,7 @@
           <!-- Author -->
           <p class="lead">
             by
-            <a href="/">{{post.user.firstName}}</a>
+            <a href="#">{{post.user.firstName}}</a>
           </p>
 
           <hr>
@@ -22,11 +22,12 @@
 
           <!-- Preview Image -->
           <img class="img-fluid rounded" src="/uploads/{{post.file}}" alt="image">
-
-          <hr>
+            
           <!-- Post Content -->
+          <hr>
            <p class="lead">{{post.body}}</p>
           <hr> 
+
            <!-- if logged in -->
           {{#if user}}
 
@@ -48,19 +49,19 @@
             </div>
           </div>
 
-            {{else}}
-            <h2>Commments not allowed on this post</h2>
+              {{else}}
+            <h2>Comments not allowed on this post</h2>
             <br>
             <hr>
-           
-            {{/if}} 
 
-          {{else}}
+          {{/if}}
+
+              {{else}}
 
             You need to login to comment<br><a href="/login">Login</a> 
             <hr>
 
-          {{/if}}
+         {{/if}} 
 
             {{#each post.comments}}
 

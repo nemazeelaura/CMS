@@ -59,7 +59,7 @@ const PostSchema = new Schema({
 
        file: {
 
-          type: String,
+          type: String
 
      },
 

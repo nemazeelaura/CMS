@@ -78,7 +78,21 @@ router.post('/create', (req, res)=>{
 	} else {
 
 
-	    let filename = '';
+	let filename = '';
+
+	if(!isEmpty(req.files)){
+
+        let file = req.files.file;
+        filename = Date.now() + '-' + file.name;
+
+        file.mv('./public/uploads/' + filename, (err)=>{
+
+            if(err) throw err;
+
+        });
+
+
+    }
    
     //check to see if check box is checked
 	let allowComments = true;

@@ -95,7 +95,7 @@ app.use('/admin/comments', comments);
 const port = process.env.PORT || 4500;
 app.listen(port, ()=>{
 
-console.log(`listening yo on port ${port}`);
+console.log(`listening on port ${port}`);
 
 });
 

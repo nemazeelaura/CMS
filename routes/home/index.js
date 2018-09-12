@@ -214,7 +214,8 @@ router.post('/register', (req, res)=>{
 //replaced 'post/:id' with :slug.. makes url pretty shows post name instead of id
 router.get('/post/:slug', (req, res)=>{
 	//nesting population inserting object with key and model 
-	Post.findOne({slug: req.params.slug}).populate({path: 'comments', populate: {path: 'user', model: 'users'}})
+	Post.findOne({slug: req.params.slug})
+	.populate({path: 'comments', match: {approveComment: true},populate: {path: 'user', model: 'users'}})
 	.populate('user')
 	.then(post =>{
 

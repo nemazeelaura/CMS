@@ -25,7 +25,7 @@ router.get('/', (req, res)=>{
 });
 
 //Create
-router.post('/',( req, res)=>{
+router.post('/', ( req, res)=>{
                  //need _id: to find post
   Post.findOne({_id: req.body.id}).then(post=>{
 
@@ -52,7 +52,7 @@ router.post('/',( req, res)=>{
 router.delete('/:id', (req, res)=>{
   Comment.remove({_id: req.params.id}).then(deleteItem=>{
       //find post and any comments with the same id as post
-      Post.findOneAndUpdate({comments: req.params.id}, {$pull: {comments: req.params.id}}, (err,data)=>{
+      Post.findOneAndUpdate({comments: req.params.id}, {$pull: {comments: req.params.id}}, (err, data)=>{
         if(err) console.log(err);
          // req.flash('success_message', 'Comment was successfully deleted');
          res.redirect('/admin/comments');
